@@ -1,0 +1,131 @@
+Degree
+ClrHome
+1->A
+2->O
+3->H
+4->theta
+AxesOff
+GridOff
+FnOff
+PlotsOff
+DispGraph
+ClrDraw
+RecallPic 1
+Text(57,0,"SELECT ANGLE theta.")
+0->K
+While K!=92 and K!=93
+	getKey->K
+End
+If K=92
+0->L
+If K=93
+1->L
+ClrDraw
+RecallPic 2
+Text(57,0,"SELECT GIVEN.")
+0->K
+While K!=92 and K!=93 and K!=94 and K!=82
+	getKey->K
+End
+If K=92
+0+L->G
+If K=93
+1-L->G
+If K=94
+2->G
+If K=82
+3->G
+ClrHome
+If G=3
+Then
+	Disp "ENTER ANGLE IN"
+	Input "DEGREES: ",I
+Else
+	Input "ENTER SIDE      LENGTH: ",I
+End
+ClrDraw
+RecallPic 2
+Text(57,0,"SELECT GIVEN.")
+0->K
+While K!=92 and K!=93 and K!=94 and K!=82
+	getKey->K
+End
+If K=92
+0+L->H
+If K=93
+1-L->H
+If K=94
+2->H
+If K=82
+3->H
+ClrHome
+If H=3
+Then
+	Disp "ENTER ANGLE IN"
+	Input "DEGREES: ",J
+Else
+	Input "ENTER SIDE      LENGTH: ",J
+End
+ClrDraw
+RecallPic 2
+Text(57,0,"SELECT GOAL.")
+"IJE=CHOICE"
+"GH=NUMBER"
+0->K
+While K!=92 and K!=93 and K!=94 and K!=82
+	getKey->K
+End
+If K=92
+0+L->E
+If K=93
+1-L->E
+If K=94
+2->E
+If K=82
+3->E
+~999->A
+If G>H
+Then
+	G->T
+	H->G
+	T->H
+	I->T
+	J->I
+	T->J
+End
+If G=1 and H=3 and E=0
+I/tan(J)->A
+If G=0 and H=3 and E=1
+Itan(J)->A
+If G=2 and H=3 and E=0
+Icos(J)->A
+If G=2 and H=3 and E=1
+Isin(J)->A
+If G=0 and H=3 and E=2
+I/cos(J)->A
+If G=1 and H=3 and E=2
+I/sin(J)->A
+If G=1 and H=2 and E=3
+sin^-1(I/J)->A
+If G=0 and H=2 and E=3
+cos^-1(I/J)->A
+If G=0 and H=1 and E=3
+tan^-1(J/I)->A
+If G=0 and H=1 and E=2
+sqrt(I^^2+J^^2)->A
+If G=0 and H=2 and E=1
+sqrt(J^^2-I^^2)->A
+If G=1 and H=2 and E=0
+sqrt(J^^2-I^^2)->A
+ClrHome
+If A=~999
+Then
+	Disp "INVALID DATA"
+Else
+	If E=3
+	Then
+		Disp "ANGLE IS",A
+	Else
+		Disp "SIDE IS",A
+	End
+End

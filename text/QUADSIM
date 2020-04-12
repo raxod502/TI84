@@ -1,0 +1,7 @@
+"Str0
+Disp "AX^^2+BX+C=0"
+Input "A=?",Str0:expr(Str0)->|LQUAD(1)
+Input "B=?",Str0:expr(Str0)->|LQUAD(2)
+Input "C=?",Str0:expr(Str0)->|LQUAD(3)
+(~|LQUAD(2)+{1,~1}sqrt(|LQUAD(2)^^2-4|LQUAD(1)|LQUAD(3)))/|LQUAD(1).5->|LQUAD
+Disp |LQUAD(1),|LQUAD(2):|LQUAD

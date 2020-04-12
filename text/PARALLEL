@@ -1,0 +1,27 @@
+"I,Str0
+1->dim(|LPARA1)
+Disp "ENTER 8 POINTS:"
+For(I,1,8)
+	Input "",Str0
+	augment(|LPARA1,expr("{"+Str0+"}"))->|LPARA1
+End
+1->N
+For(I,1,8)
+	For(J,I+1,8)
+		|LPARA1(3J-1)-|LPARA1(3I-1)->|LPARA2(3N-2)
+		|LPARA1(3J)-|LPARA1(3I)->|LPARA2(3N-1)
+		|LPARA1(3J+1)-|LPARA1(3I+1)->|LPARA2(3N)
+		N+1->N
+	End
+End
+0->dim(|LPARA1)
+For(I,1,28)
+	0
+	For(J,I+1,28)
+		If |LPARA2(3I-2)=|LPARA2(3J-2) and |LPARA2(3I-1)=|LPARA2(3J-1) and |LPARA2(3I)=|LPARA2(3J) or |LPARA2(3I-2)=~|LPARA2(3J-2) and |LPARA2(3I-1)=|LPARA2(3J-1) and |LPARA2(3I)=|LPARA2(3J)
+		Ans+1
+	End
+	If Ans=3
+	I->|LPARA1(dim(|LPARA1)+1)
+End
+Disp "-- VOLUME=",abs(det([[|LPARA2(3|LPARA1(1)-2),|LPARA2(3|LPARA1(1)-1),|LPARA2(3|LPARA1(1))][|LPARA2(3|LPARA1(2)-2),|LPARA2(3|LPARA1(2)-1),|LPARA2(3|LPARA1(2))][|LPARA2(3|LPARA1(3)-2),|LPARA2(3|LPARA1(3)-1),|LPARA2(3|LPARA1(3))]])

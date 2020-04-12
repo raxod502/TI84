@@ -1,0 +1,442 @@
+AxesOff
+GridOff
+FnOff
+ClrDraw
+Degree
+0->A
+0->B
+0->C
+0->U
+0->V
+0->W
+1->G
+1->H
+0->L
+RecallPic 3
+While L<3
+	getKey->K
+	If K=41
+	Then
+		ClrHome
+		Input "ENTER ANGLE A:  ",A
+		L+1->L
+		RecallPic 3
+	End
+	If K=42
+	Then
+		ClrHome
+		Input "ENTER ANGLE B:  ",B
+		L+1->L
+		RecallPic 3
+	End
+	If K=43
+	Then
+		ClrHome
+		Input "ENTER ANGLE C:  ",C
+		L+1->L
+		RecallPic 3
+	End
+	If K=92
+	Then
+		ClrHome
+		Input "ENTER SIDE A:   ",U
+		L+1->L
+		RecallPic 3
+	End
+	If K=93
+	Then
+		ClrHome
+		Input "ENTER SIDE B:   ",V
+		L+1->L
+		RecallPic 3
+	End
+	If K=94
+	Then
+		ClrHome
+		Input "ENTER SIDE C:   ",W
+		L+1->L
+		RecallPic 3
+	End
+End
+A->D
+B->E
+C->F
+U->X
+V->Y
+W->Z
+1->L
+While L<=5
+	ClrHome
+	Disp "CALCULATING","ITERATION",L,"OF",5,"..."
+	"180 DEGREES IN  TRIANGLE"
+	If A and B
+	Then
+		180-A-B->Q
+		If C and C!=Q
+		0->G
+		Q->C
+	End
+	If D and E
+	Then
+		180-D-E->Q
+		If F and F!=Q
+		0->H
+		Q->F
+	End
+	If A and C
+	Then
+		180-A-C->Q
+		If B and B!=Q
+		0->G
+		Q->B
+	End
+	If D and F
+	Then
+		180-D-F->Q
+		If E and E!=Q
+		0->H
+		Q->E
+	End
+	If B and C
+	Then
+		180-B-C->Q
+		If A and A!=Q
+		0->G
+		Q->A
+	End
+	If E and F
+	Then
+		180-E-F->Q
+		If D and D!=Q
+		0->H
+		Q->D
+	End
+	"LAW OF COSINES  ABC"
+	If U and V and W
+	Then
+		(U^^2+V^^2-W^^2)/(2UV)->Q
+		If Q>1 or Q<~1
+		Then
+			0->G
+		Else
+			cos^-1(Q)->Q
+		End
+		If C and round(Q,3)-round(C,3)
+		0->G
+		Q->C
+		(V^^2+W^^2-U^^2)/(2VW)->Q
+		If Q>1 or Q<~1
+		Then
+			0->G
+		Else
+			cos^-1(Q)->Q
+		End
+		If A and round(Q,3)-round(A,3)
+		0->G
+		Q->A
+	End
+	"LAW OF COSINES  DEF"
+	If X and Y and Z
+	Then
+		(X^^2+Y^^2-Z^^2)/(2XY)->Q
+		If Q>1 or Q<~1
+		Then
+			0->H
+		Else
+			cos^-1(Q)->Q
+		End
+		If F and round(Q,3)-round(F,3)
+		0->H
+		Q->F
+		(Y^^2+Z^^2-X^^2)/(2YZ)->Q
+		If Q>1 or Q<~1
+		Then
+			0->H
+		Else
+			cos^-1(Q)->Q
+		End
+		If D and round(Q,3)-round(D,3)
+		0->H
+		Q->D
+	End
+	"LAW OF COSINES  ANGLE + SIDES   ABC"
+	If A and V and W
+	Then
+		sqrt(V^^2+W^^2-2VWcos(A))->Q
+		If U and round(Q,3)-round(U,3)
+		0->G
+		Q->U
+	End
+	If B and U and W
+	Then
+		sqrt(U^^2+W^^2-2UWcos(B))->Q
+		If V and round(Q,3)-round(V,3)
+		0->G
+		Q->V
+	End
+	If C and U and V
+	Then
+		sqrt(U^^2+V^^2-2UVcos(C))->Q
+		If W and round(Q,3)-round(W,3)
+		0->G
+		Q->W
+	End
+	If D and Y and Z
+	Then
+		sqrt(Y^^2+Z^^2-2YZcos(D)->Q
+		If X and round(Q,3)-round(X,3)
+		0->H
+		Q->X
+	End
+	If E and X and Z
+	Then
+		sqrt(X^^2+Z^^2-2XZcos(E)->Q
+		If Y and round(Q,3)-round(Y,3)
+		0->H
+		Q->Y
+	End
+	If F and X and Y
+	Then
+		sqrt(X^^2+Y^^2-2XYcos(F)->Q
+		If Z and round(Q,3)-round(Z,3)
+		0->H
+		Q->Z
+	End
+	"LAW OF SINES    SIDE/ANGLE +    ANGLE TO SIDE   ABC"
+	If A and U or B and V or C and W
+	Then
+		If A and U
+		U/sin(A)->R
+		If B and V
+		V/sin(B)->R
+		If C and W
+		W/sin(C)->R
+		If A
+		Then
+			Rsin(A)->Q
+			If U and round(Q,3)-round(U,3)
+			0->G
+			Q->U
+		End
+		If B
+		Then
+			Rsin(B)->Q
+			If V and round(Q,3)-round(V,3)
+			0->G
+			Q->V
+		End
+		If C
+		Then
+			Rsin(C)->Q
+			If W and round(Q,3)-round(W,3)
+			0->G
+			Q->W
+		End
+	End
+	"LAW OF SINES    SIDE/ANGLE +    ANGLE TO SIDE   DEF"
+	If D and X or E and Y or F and Z
+	Then
+		If D and X
+		X/sin(D)->R
+		If E and Y
+		Y/sin(E)->R
+		If F and Z
+		Z/sin(F)->R
+		If D
+		Then
+			Rsin(D)->Q
+			If X and round(Q,3)-round(X,3)
+			0->H
+			Q->X
+		End
+		If E
+		Then
+			Rsin(E)->Q
+			If Y and round(Q,3)-round(Y,3)
+			0->H
+			Q->Y
+		End
+		If F
+		Then
+			Rsin(F)->Q
+			If Z and round(Q,3)-round(Z,3)
+			0->H
+			Q->Z
+		End
+	End
+
+	"LAW OF SINES    SIDE/ANGLE +    SIDE TO ANGLE"
+	If A and U or B and V or C and W or D and X or E and Y or F and Z
+	Then
+		If A and U
+		sin(A)/U->R
+		If B and V
+		sin(B)/V->R
+		If C and W
+		sin(C)/W->R
+		If D and X
+		sin(D)/X->R
+		If E and Y
+		sin(E)/Y->R
+		If F and Z
+		sin(F)/Z->R
+		For(I,1,6)
+			If I=1
+			Then
+				A->J
+				X->N
+				D->K
+			End
+			If I=2
+			Then
+				B->J
+				Y->N
+				E->K
+			End
+			If I=3
+			Then
+				C->J
+				Z->N
+				F->K
+			End
+			If I=4
+			Then
+				X->N
+				A->K
+				D->J
+			End
+			If I=5
+			Then
+				Y->N
+				B->K
+				E->J
+			End
+			If I=6
+			Then
+				Z->N
+				C->K
+				F->J
+			End
+			If I>=1 and I<=3
+			G->T
+			If I>=4 and I<=6
+			H->T
+			If N
+			Then
+				RN->Q
+				If Q>1 or Q<~1
+				Then
+					0->T
+				Else
+					sin^-1(Q)->Q
+				End
+				180-Q->P
+				If not(J)
+				Then
+					If not(K)
+					Then
+						Q->J
+						P->K
+					End
+					If not(round(P,3)-round(K,3))
+					Q->J
+					If not(round(Q,3)-round(K,3))
+					P->J
+				End
+				If not(round(P,3)-round(J,3))
+				Then
+					If not(K)
+					Q->K
+				End
+				If not(round(Q,3)-round(J,3))
+				Then
+					If not(K)
+					P->K
+				End
+			End
+			If I=1
+			Then
+				J->A
+				K->D
+			End
+			If I=2
+			Then
+				J->B
+				K->E
+			End
+			If I=3
+			Then
+				J->C
+				K->F
+			End
+			If I=4
+			Then
+				K->A
+				J->D
+			End
+			If I=5
+			Then
+				K->B
+				J->E
+			End
+			If I=6
+			Then
+				K->C
+				J->F
+			End
+			If I>=1 and I<=3
+			T->G
+			If I>=4 and I<=6
+			T->H
+			"If STATEMENT"
+		End
+		"For( LOOP"
+	End
+	L+1->L
+	"While LOOP"
+End
+ClrHome
+~1->N
+If not(G)
+0->N
+If G and H
+2->N
+If round(A,3)=round(D,3) and round(B,3)=round(E,3) and round(C,3)=round(F,3) and round(U,3)=round(X,3) and round(V,3)=round(Y,3) and round(W,3)=round(Z,3) or G+H=1
+1->N
+If N=1 and not(A and B and C and U and V and W
+Then
+	~1->N
+Else
+	If N=2 and not(A and B and C and U and V and W and D and E and F and X and Y and Z
+	~1->N
+End
+If N=~1
+Then
+	Disp "INSUFFICIENT"
+	Pause "INFORMATION"
+End
+If N=0
+Pause "NO SOLUTIONS"
+If N=1
+Pause "1 SOLUTION"
+If N=2
+Pause "2 SOLUTIONS"
+If N>0
+Then
+	ClrHome
+	Disp "POSSIBILITY 1:","ANGLE A =",A,"ANGLE B =",B,"ANGLE C ="
+	Pause C
+	ClrHome
+	Disp "POSSIBILITY 1:","SIDE A =",U,"SIDE B =",V,"SIDE C ="
+	Pause W
+	If N=2
+	Then
+		ClrHome
+		Disp "POSSIBILITY 2:","ANGLE A",D,"ANGLE B",E,"ANGLE C"
+		Pause F
+		ClrHome
+		Disp "POSSIBILITY 2:","SIDE A =",X,"SIDE B =",Y,"SIDE C ="
+		Pause Z
+	End
+End
+ClrHome

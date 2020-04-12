@@ -1,0 +1,8 @@
+Menu("SELECT FUNCTION","RIGHT TRI.",1,"ANY TRI.",2,"CANCEL",0)
+Lbl 1
+prgmthetaTRIANG1
+Goto 0
+Lbl 2
+prgmthetaTRIANG2
+Goto 0
+Lbl 0

@@ -1,0 +1,43 @@
+If 0
+"Str9,Str0,theta
+Ans->|LPDGET
+"theta->Str9
+For(theta,dim(|LPDGET),1,~1
+	abs(|LPDGET(theta
+	If Ans
+	Then
+		prgmthetaNUM2STR
+		If |LPDGET(theta)>0
+		Then
+			"+"+Ans
+		Else
+			"-"+Ans
+		End
+		If abs(|LPDGET(theta))=1 and theta!=1
+		sub(Ans,1,1
+		If theta!=1
+		Ans+"X
+		If theta=3
+		Ans+"^^2
+		If theta=4
+		Ans+"^^3
+		If theta>4
+		Then
+			Str9+Ans+"^"->Str9
+			theta-1
+			prgmthetaNUM2STR
+		End
+		Str9+Ans->Str9
+	End
+End
+If length(Str9)=1
+Then
+	"0
+Else
+	If sub(Str9,2,1)="-
+	Then
+		"~"+sub(Str9,3,length(Str9)-2
+	Else
+		sub(Str9,3,length(Str9)-2
+	End
+End

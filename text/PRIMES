@@ -1,0 +1,35 @@
+"LN
+{2,3}->|LPRIME
+5->N
+While 1
+	sqrt(N)->L
+	5
+	While Ans<=L
+		If not(remainder(N,Ans))
+		Then
+			L
+		Else
+			If not(remainder(N,Ans+2))
+			L
+		End
+		Ans+6
+	End
+	If Ans!=L+6
+	N->|LPRIME(dim(|LPRIME)+1)
+	N+2->N
+	sqrt(N)->L
+	5
+	While Ans<=L
+		If not(remainder(N,Ans))
+		Then
+			L
+		Else
+			If not(remainder(N,Ans+2))
+			L
+		End
+		Ans+6
+	End
+	If Ans!=L+6
+	N->|LPRIME(dim(|LPRIME)+1)
+	N+4->N
+End

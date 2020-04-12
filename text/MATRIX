@@ -1,0 +1,163 @@
+dim([A])
+Ans(1)->M
+dim([A])
+Ans(2)->N
+0->D
+Menu("SELECT ALGORITHM","MAT->REF",2,"MAT->RREF",1,"REF->RREF",5,"MAT->LU",8)
+Lbl 1
+1->D
+Lbl 2
+1
+{M,N}->dim([B])
+Fill(0,[B])
+If [A]=[B]
+Goto Q
+[A]->[B]
+2
+1->R
+0->C
+Repeat sum(abs(|LECHCO))
+	C+1->C
+	Matr>list([B],C,|LECHCO)
+End
+3
+Lbl 3
+R->S
+While not([B](S,C))
+	S+1->S
+End
+If S!=R
+rowSwap([B],R,S)->[B]
+4
+For(S,R+1,M)
+	If [B](S,C)!=0
+	*row+(~[B](S,C)/[B](R,C),[B],R,S)->[B]
+End
+5
+R->S
+Repeat T
+	S+1->S
+	If S=M+1
+	Then
+		1->T
+	Else
+		*row(~1,[B],S)!=[B]->T
+	End
+End
+If S=M+1
+Goto 4
+6
+Repeat Sigma(abs(|LECHCO(I)),I,R+1,M)
+	C+1->C
+	Matr>list([B],C,|LECHCO)
+End
+7
+R+1->R
+8
+Goto 3
+Lbl 4
+If not(D)
+Goto Q
+[A]->[C]
+[B]->[A]
+Lbl 5
+2
+{M,N}->dim([B])
+Fill(0,[B])
+If [A]=[B]
+Goto Q
+[A]->[B]
+3
+M->R
+While *row(~1,[B],R)=[B]
+	R-1->R
+End
+1->C
+While not([B](R,C))
+	C+1->C
+End
+4
+Lbl 6
+*row([B](R,C)^^-1,[B],R)->[B]
+For(S,1,R-1)
+	If [B](S,C)
+	*row+(~[B](S,C)/[B](R,C),[B],R,S)->[B]
+End
+6
+If R=1
+Goto 7
+7
+R-1->R
+8
+1->C
+While not([B](R,C))
+	C+1->C
+End
+9
+Goto 6
+Lbl 7
+If D
+Then
+	[C]->[A]
+	DelVar [C]
+End
+Goto Q
+Lbl 8
+1
+identity(N)->[B]
+2
+{M,N}->dim([C])
+Fill(0,[C])
+If [A]=[C]
+Goto Q
+[A]->[C]
+3
+1->R
+0->C
+Repeat sum(abs(|LECHCO))
+	C+1->C
+	Matr>list([C],C,|LECHCO)
+End
+4
+Lbl 9
+If not([C](R,C))
+Then
+	Disp "ERROR: ROW","INTERCHANGE","REQUIRED"
+	DelVar [B]
+	DelVar [C]
+	Stop
+End
+5
+For(I,R+1,M)
+	[C](I,C)/[C](R,C)->[B](I,C)
+End
+6
+For(S,R+1,M)
+	If [C](S,C)!=0
+	*row+(~[C](S,C)/[C](R,C),[C],R,S)->[C]
+End
+7
+R->S
+Repeat T
+	S+1->S
+	If S=M+1
+	Then
+		1->T
+	Else
+		*row(~1,[C],S)!=[C]->T
+	End
+End
+If S=M+1
+Goto 10
+8
+Repeat Sigma(abs(|LECHCO(I)),I,R+1,M)
+	C+1->C
+	Matr>list([C],C,|LECHCO)
+End
+9
+R+1->R
+10
+Goto 9
+Lbl 10
+Goto Q
+Lbl Q

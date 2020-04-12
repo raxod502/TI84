@@ -1,0 +1,32 @@
+"FLN
+Prompt N
+While not(remainder(N,2))
+	Disp 2
+	N/2->N
+End
+While not(remainder(N,3))
+	Disp 3
+	N/3->N
+End
+sqrt(N)->L
+5
+While N!=1 and Ans<=L
+	While not(remainder(N,Ans))
+		Ans->F
+		Disp Ans
+		N/Ans->N
+		sqrt(N)->L
+		F
+	End
+	Ans+2
+	While not(remainder(N,Ans))
+		Ans->F
+		Disp Ans
+		N/Ans->N
+		sqrt(N)->L
+		F
+	End
+	Ans+4
+End
+If N!=1
+Disp N

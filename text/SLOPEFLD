@@ -1,0 +1,21 @@
+"ABHIJKMPQRSUVXYZ
+Func:FnOff
+ClrDraw:ClrHome:Pxl-Change(47,35)
+Disp "HOW MANY MARKS?"
+Input "ACROSS:",A
+Input "DOWN:",B
+(Xmax-Xmin)/A->H
+(Ymax-Ymin)/B->K
+Xmin+.5H->Z
+Ymax-.5K->Y
+For(I,1,B)
+	Z->X
+	For(J,1,A)
+		{Y1}DeltaX/DeltaY->M
+		H/sqrt(1+M^^2)->U
+		KM/sqrt(1+M^^2)->V
+		X-.4U->P:Y-.4V->Q
+		X+.4U->R:Y+.4V->S
+		Line(P,Q,R,S)
+	X+H->X:End
+Y-K->Y:End

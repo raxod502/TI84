@@ -1,0 +1,57 @@
+If 0
+"Str9,Str0,theta
+Ans->Str9
+7->dim(|LPDGET
+0->dim(|LPDDEN
+~1->|LPDGET(7
+1->|LPDGET(2
+While |LPDGET(2
+	|LPDGET(2->|LPDGET(1
+	{inString(Str9,"+",|LPDGET(1)+1),inString(Str9,"-",|LPDGET(1)+1
+	prgmthetaPDINDEX
+	Ans->|LPDGET(2
+	If |LPDGET(2
+	Then
+		|LPDGET(2)-1->|LPDGET(3
+	Else
+		length(Str9->|LPDGET(3
+	End
+	sub(Str9,|LPDGET(1),|LPDGET(3)-|LPDGET(1)+1->Str0
+	inString(Str0,"X"->|LPDGET(4
+	If not(|LPDGET(4
+	Then
+		Str0
+		prgmthetaPDPCOEF
+		Ans->|LPDGET(5
+		0->|LPDGET(6
+	Else
+		If |LPDGET(4)!=1
+		Then
+			sub(Str0,1,|LPDGET(4)-1
+		Else
+			"
+		End
+		prgmthetaPDPCOEF
+		Ans->|LPDGET(5
+		inString("X^^2^^3",sub(Str0,length(Str0),1->|LPDGET(6
+		If not(|LPDGET(6
+		Then
+			inString(Str0,"^
+			expr(sub(Str0,Ans+1,length(Str0)-Ans->|LPDGET(6
+		End
+	End
+	If |LPDGET(7) and |LPDGET(7)-|LPDGET(6)>1
+	Then
+		For(theta,1,|LPDGET(7)-|LPDGET(6)-1)
+			0->|LPDDEN(dim(|LPDDEN)+1
+		End
+	End
+	|LPDGET(6->|LPDGET(7
+	|LPDGET(5->|LPDDEN(dim(|LPDDEN)+1
+End
+If |LPDGET(7
+Then
+	For(theta,1,|LPDGET(7
+		0->|LPDDEN(dim(|LPDDEN)+1
+	End
+End

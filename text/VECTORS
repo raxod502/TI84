@@ -1,0 +1,149 @@
+Degree
+Lbl A
+ClrHome
+Menu("SELECT FUNCTION","CAR2RAD",1,"CAR2BER",2,"RAD2CAR",3,"BER2CAR",4,"RADSUM",5,"BERSUM",6,"NEXT",B)
+ClrHome
+Lbl B
+Menu("SELECT FUNCTION","PREVIOUS",A,"DOTPROD",7,"CROSSPROD",9,"LINCOMB",10,"UNITVECTOR",11)
+Lbl 1
+Input "X: ",X
+Input "Y: ",Y
+Disp "MAGNITUDE:",R>Pr(X,Y)
+Disp "ANGLE:",R>Ptheta(X,Y)
+Goto 8
+Lbl 2
+Input "X: ",X
+Input "Y: ",Y
+Disp "MAGNITUDE:",R>Pr(X,Y)
+90-R>Ptheta(X,Y)->A
+If A<0
+A+360->A
+Disp "BEARING:",A
+Goto 8
+Lbl 3
+Input "R: ",R
+Input "theta: ",theta
+Disp "X DISPLACEMENT:",P>Rx(R,theta)
+Disp "Y DISPLACEMENT:",P>Ry(R,theta)
+Goto 8
+Lbl 4
+Input "R: ",R
+Input "theta': ",theta
+Disp "X DISPLACEMENT: ",P>Rx(R,90-theta)
+Disp "Y DISPLACEMENT: ",P>Ry(R,90-theta)
+Goto 8
+Lbl 5
+1->dim(|LX)
+1->dim(|LY)
+1->F
+While F
+	Input "R: ",R
+	Input "theta: ",theta
+	P>Rx(R,theta)->|LX(dim(|LX))
+	P>Ry(R,theta)->|LY(dim(|LY))
+	Disp "ADD MORE        ","VECTORS?"
+	0->K
+	1->G
+	While G
+		getKey->K
+		If K=102
+		Then
+			0->F
+			0->G
+		End
+		If K=92
+		0->G
+	End
+	dim(|LX)+1->dim(|LX)
+	dim(|LY)+1->dim(|LY)
+End
+sum(|LX)->X
+sum(|LY)->Y
+ClrHome
+Disp "MAGNITUDE:",R>Pr(X,Y)
+Disp "ANGLE:",R>Ptheta(X,Y)
+Goto 8
+Lbl 6
+1->dim(|LX)
+1->dim(|LY)
+1->F
+While F
+	Input "R: ",R
+	Input "theta': ",theta
+	P>Rx(R,90-theta)->|LX(dim(|LX))
+	P>Ry(R,90-theta)->|LY(dim(|LY))
+	Disp "ADD MORE        ","VECTORS?"
+	0->K
+	1->G
+	While G
+		getKey->K
+		If K=102
+		Then
+			0->F
+			0->G
+		End
+		If K=92
+		0->G
+	End
+	dim(|LX)+1->dim(|LX)
+	dim(|LY)+1->dim(|LY)
+End
+sum(|LX)->X
+sum(|LY)->Y
+ClrHome
+Disp "MAGNITUDE:",R>Pr(X,Y)
+90-R>Ptheta(X,Y)->A
+If A<0
+A+360->A
+Disp "BEARING:",A
+Goto 8
+Lbl 7
+Prompt A,B,C,X,Y,Z
+Disp "DOT PRODUCT:",AX+BY+CZ
+Goto 8
+Lbl 9
+Prompt A,B,C,X,Y,Z
+Disp "CROSS PRODUCT:",BZ-CY,CX-AZ,AY-BX
+Goto 8
+Lbl 10
+Prompt N
+{N,N+1}->dim([A])
+N->dim(L1)
+For(C,1,N+1)
+	If C<=N
+	Then
+		Disp "ENTER VECTOR",C
+	Else
+		Disp "ENTER TARGET","VECTOR"
+	End
+	For(R,1,N)
+		Prompt X
+		X->L1(R)
+	End
+	If C<=N
+	L1/sqrt(sum(L1^^2))->L1
+	For(R,1,N)
+		L1(R)->[A](R,C)
+	End
+End
+rref([A])->[A]
+For(R,1,N)
+	[A](R,N+1)->L1(R)
+End
+ClrHome
+If N<=5
+Then
+	Disp "COEFICIENTS:"
+	For(R,1,N)
+		Disp L1(R)
+	End
+Else
+	Disp "SEE L1 FOR","COEFFICIENTS"
+End
+Goto 8
+Lbl 11
+Prompt X,Y,Z
+sqrt(X^^2+Y^^2+Z^^2)->R
+Disp "UNIT VECTOR:",X/R,Y/R,Z/R
+Goto 8
+Lbl 8

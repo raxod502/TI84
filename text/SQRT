@@ -1,0 +1,76 @@
+"AFLNPR,Str9
+Input "sqrt(",N
+N->R
+If not(fPart(sqrt(N)))
+Then
+	sqrt(N)
+	prgmthetaNUM2STR
+	"="+Ans
+	Goto 1
+End
+1->P
+0->A
+While not(remainder(N,2))
+	N/2->N
+	If A
+	Then
+		2P->P
+		R/4->R
+	End
+	not(A)->A
+End
+0->A
+While not(remainder(N,3))
+	N/3->N
+	If A
+	Then
+		3P->P
+		R/9->R
+	End
+	not(A)->A
+End
+sqrt(N)->L
+5
+While N!=1 and Ans<=L
+	While not(remainder(N,Ans))
+		Ans->F
+		N/Ans->N
+		If not(remainder(N,F))
+		Then
+			N/F->N
+			FP->P
+			R/F^^2->R
+		End
+		sqrt(N)->L
+		F
+	End
+	Ans+2
+	While not(remainder(N,Ans))
+		Ans->F
+		N/Ans->N
+		If not(remainder(N,F)
+		Then
+			N/F->N
+			FP->P
+			R/F^^2->R
+		End
+		sqrt(N)->L
+		F
+	End
+	Ans+4
+End
+If P=1
+Then
+	R
+	prgmthetaNUM2STR
+	"=sqrt("+Ans+")"
+Else
+	P
+	prgmthetaNUM2STR
+	Ans->Str9
+	R
+	prgmthetaNUM2STR
+	"="+Str9+"sqrt("+Ans+")"
+End
+Lbl 1
+Ans

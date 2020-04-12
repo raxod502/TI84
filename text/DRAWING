@@ -1,0 +1,110 @@
+ClrHome
+0->X
+0->Z
+Pxl-Change(X,Z)
+DispGraph
+While 1
+	getKey->K
+	If K=24 or K=26 or K=25 or K=34
+	Then
+		Pxl-Change(Z,X)
+		If K=24 and X!=0
+		X-1->X
+		If K=26 and X!=94
+		X+1->X
+		If K=25 and Z!=0
+		Z-1->Z
+		If K=34 and Z!=62
+		Z+1->Z
+		Pxl-Change(Z,X)
+	End
+	If K=45
+	Then
+		0
+		Menu("CLEAR?","NO",A0,"YES",A1)
+		Lbl A1
+		1
+		Lbl A0
+		If Ans
+		ClrDraw
+		Pxl-On(Z,X)
+		DispGraph
+	End
+	If K=105
+	Pxl-Change(Z,X)
+	If K=73 or K=82 or K=84 or K=93
+	Input "PIXELS? ",theta
+	If K=82
+	Then
+		For(I,theta,94)
+			For(J,0,62)
+				If pxl-Test(J,I)
+				Then
+					Pxl-On(J,I-theta)
+				Else
+					Pxl-Off(J,I-theta)
+				End
+			End
+		End
+		For(I,95-theta,94)
+			For(J,0,62)
+				Pxl-Off(J,I)
+			End
+		End
+	End
+	If K=84
+	Then
+		For(I,94-theta,0,~1)
+			For(J,62,0,~1)
+				If pxl-Test(J,I)
+				Then
+					Pxl-On(J,I+theta)
+				Else
+					Pxl-Off(J,I+theta)
+				End
+			End
+		End
+		For(I,theta-1,0,~1)
+			For(J,62,0,~1)
+				Pxl-Off(J,I)
+			End
+		End
+	End
+	If K=73
+	Then
+		For(I,0,94)
+			For(J,theta,62)
+				If pxl-Test(J,I)
+				Then
+					Pxl-On(J-theta,I)
+				Else
+					Pxl-Off(J-theta,I)
+				End
+			End
+		End
+		For(I,0,94)
+			For(J,63-theta,62)
+				Pxl-Off(J,I)
+			End
+		End
+	End
+	If K=93
+	Then
+		For(I,94,0,~1)
+			For(J,62-theta,0,~1)
+				If pxl-Test(J,I)
+				Then
+					Pxl-On(J+theta,I)
+				Else
+					Pxl-Off(J+theta,I)
+				End
+			End
+		End
+		For(I,94,0,~1)
+			For(J,theta-1,0,~1)
+				Pxl-Off(J,I)
+			End
+		End
+	End
+End
+End

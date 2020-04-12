@@ -1,0 +1,7 @@
+If 0
+"theta
+Ans->theta:{1,abs(Ans
+Repeat |E~9>Ans(2
+	abs(Ans(2){1,fPart(Ans(1)/Ans(2
+End
+round({theta,1}/Ans(1),0)

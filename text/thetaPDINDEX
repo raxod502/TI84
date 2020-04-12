@@ -1,0 +1,8 @@
+If 0
+"
+If Ans(1) and Ans(2
+Then
+	min(Ans(1),Ans(2
+Else
+	max(Ans(1),Ans(2
+End

@@ -1,0 +1,265 @@
+"
+Lbl M
+Menu("MAIN MENU","FUNDAMENTAL",1,"SUM/DIFFERENCE",2,"DOUBLE+HALF",3,"POWER REDUCING",4,"SUM/PRODUCT",5,"LAW OF SIN/COS",6,"OTHER",7)
+End
+Lbl 7
+ClrHome
+Disp "W=[[PROJ(RAYPQ)F"
+Disp "]]*[[(RAYPQ)]]
+Disp " "
+Disp "PROJ(|v)|u="
+Disp "((|u.|v)/[[|v]]^^2)|v"
+Disp " "
+Disp "AREA=.5ABsin(C)"
+Pause
+Goto M
+Lbl 1
+Menu("FUNDAMENTALS","RECIPR0CAL",11,"QUOTIENT",12,"PYTHAGOREAN",13,"COFUNCTION",14,"EVEN/ODD",15,"BACK",M)
+End
+Lbl 2
+Menu("SUM/DIFFERENCE","sin(U+V)",21,"sin(U-V)",22,"cos(U+V)",23,"cos(U-V)",24,"tan(U+V)",25,"tan(U-V)",26,"BACK",M)
+End
+Lbl 3
+Menu("DOUBLE+HALF","sin(2U)",31,"cos(2U)",32,"tan(2U)",33,"sin(U/2)",34,"cos(U/2)",35,"tan(U/2)",36,"BACK",M)
+End
+Lbl 4
+Menu("POWER REDUCING","SIN^^2(U)",41,"COS^^2(U)",42,"TAN^^2(U)",43,"BACK",M)
+End
+Lbl 5
+Menu("SUM/PRODUCT","SUM TO PRODUCT",51,"PRODUCT TO SUM",52,"BACK",M)
+End
+Lbl 11
+Disp "RECIPROCAL"
+Disp "SIN(U)=1/CSC(U)"
+Disp "COS(U)=1/SEC(U)"
+Disp "TAN(U)=1/COT(U)"
+Disp "CSC(U)=1/SIN(U)"
+Disp "SEC(U)=1/COS(U)"
+Disp "COT(U)=1/TAN(U)"
+Pause
+Goto M
+Lbl 12
+ClrHome
+Disp "QUOTIENT"
+Disp "TAN(U)"
+Disp "  =SIN(U)/COS(U)"
+Disp "COT(U)"
+Disp "  =COS(U)/SIN(U)"
+Pause
+Goto M
+Lbl 13
+Disp "PYTHAGOREAN"
+Disp "SIN^^2(U)+COS^^2(U)"
+Disp "  =1"
+Disp "1+TAN^^2(U)"
+Disp "  =SEC^^2(U)"
+Disp "1+COT^^2(U)"
+Disp "  =CSC^^2(U)
+Pause
+Goto M
+Lbl 14
+Disp "COFUNCTION"
+Disp "SIN(pi/2-U)=COS(U"
+Disp "COS(pi/2-U)=SIN(U"
+Disp "TAN(pi/2-U)=COT(U"
+Disp "COT(pi/2-U)=TAN(U"
+Disp "SEC(pi/2-U)=CSC(U"
+Disp "CSC(pi/2-U)=SEC(U"
+Pause
+Goto M
+Lbl 15
+Disp "EVEN/ODD"
+Disp "SIN(~U)=~SIN(U)"
+Disp "CSC(~U)=~CSC(U)"
+Disp "COS(~U)=COS(U)"
+Disp "SEC(~U)=SEC(U)"
+Disp "TAN(~U)=~TAN(U)"
+Disp "COT(~U)=~COT(U)"
+Pause
+Goto M
+Lbl 21
+ClrHome
+Disp "SIN(U+V)="
+Disp "  SIN(U)COS(V)+"
+Disp "  COS(U)SIN(V)"
+Pause
+Goto M
+Lbl 22
+ClrHome
+Disp "SIN(U-V)="
+Disp "  SIN(U)COS(V)-"
+Disp "  COS(U)SIN(V)"
+Pause
+Goto M
+Lbl 23
+ClrHome
+Disp "COS(U+V)="
+Disp "  COS(U)COS(V)-"
+Disp "  SIN(U)SIN(V)"
+Pause
+Goto M
+Lbl 24
+ClrHome
+Disp "COS(U-V)="
+Disp "  COS(U)COS(V)+"
+Disp "  SIN(U)SIN(V)"
+Pause
+Goto M
+Lbl 25
+ClrHome
+Disp "TAN(U+V)="
+Disp "  TAN(U)+TAN(V)/"
+Disp "  1-TAN(U)TAN(V)"
+Pause
+Goto M
+Lbl 26
+ClrHome
+Disp "TAN(U-V)="
+Disp "  TAN(U)-TAN(V)/"
+Disp "  1+TAN(U)TAN(V)"
+Pause
+Goto M
+Lbl 31
+ClrHome
+Disp "SIN(2U)"
+Disp "  =2SIN(U)COS(U)"
+Pause
+Goto M
+Lbl 32
+ClrHome
+Disp "COS(2U)"
+Disp "=COS^^2(U)-SIN^^2(U)"
+Disp "=2COS^^2(U)-1"
+Disp "=1-2SIN^^2(U)"
+Pause
+Goto M
+Lbl 33
+ClrHome
+Disp "TAN(2U)"
+Disp "  =2TAN(U)/"
+Disp "   (1-TAN^^2(U))"
+Pause
+Goto M
+Lbl 34
+ClrHome
+Disp "SIN(U/2)"
+Disp "  =+-sqrt("
+Disp "  (1-COS(U))/2"
+Pause
+Goto M
+Lbl 35
+ClrHome
+Disp "COS(pi/2)"
+Disp "  =+-sqrt("
+Disp "  (1+COS(U))/2"
+Pause
+Goto M
+Lbl 36
+ClrHome
+Disp "TAN(pi/2)"
+Disp "=1-COS(U)/SIN(U)"
+Disp "=SIN(U)/1+COS(U)"
+Pause
+Goto M
+Lbl 41
+ClrHome
+Disp "SIN^^2(U)="
+Disp "  (1-COS(2U))/2"
+Pause
+Goto M
+Lbl 42
+ClrHome
+Disp "COS^^2(U)="
+Disp "  (1+COS(2U))/2"
+Pause
+Goto M
+Lbl 43
+ClrHome
+Disp "TAN^^2(U)="
+Disp "  (1-COS(2U))/"
+Disp "  (1+COS(2U))
+Pause
+Goto M
+Lbl 51
+Menu("SUM TO PRODUCT","SIN(U)+SIN(V)",5A,"SIN(U)-SIN(V)",5B,"COS(U)+COS(V)",5C,"COS(U)-COS(V)",5D,"BACK",M)
+End
+Lbl 52
+Menu("PRODUCT TO SUM","SIN(U)SIN(V)",5E,"COS(U)COS(V)",5F,"SIN(U)COS(V)",5G,"COS(U)SIN(V)",5H,"BACK",M)
+End
+Lbl 5A
+ClrHome
+Disp "SIN(U)+SIN(V)="
+Disp "  2SIN((U+V)/2)"
+Disp "  *COS((U-V)/2)"
+Pause
+Goto M
+Lbl 5B
+ClrHome
+Disp "SIN(U)-SIN(V)="
+Disp "  2COS((U+V)/2)"
+Disp "  *SIN((U-V)/2)"
+Pause
+Goto M
+Lbl 5C
+ClrHome
+Disp "COS(U)+COS(V)="
+Disp "  2COS((U+V)/2)"
+Disp "  *COS((U-V)/2)"
+Pause
+Goto M
+Lbl 5D
+ClrHome
+Disp "COS(U)-COS(V)="
+Disp " ~2SIN((U+V)/2)"
+Disp "  *SIN((U-V)/2)"
+Pause
+Goto M
+Lbl 5E
+ClrHome
+Disp "SIN(U)SIN(V)="
+Disp "  .5[COS(U-V)-"
+Disp "    COS(U+V)]"
+Pause
+Goto M
+Lbl 5F
+ClrHome
+Disp "COS(U)COS(V)="
+Disp "  .5[COS(U-V)+"
+Disp "    COS(U+V)"
+Pause
+Goto M
+Lbl 5G
+ClrHome
+Disp "SIN(U)COS(V)="
+Disp "  .5[SIN(U+V)+"
+Disp "    SIN(U-V)]"
+Pause
+Goto M
+Lbl 5H
+ClrHome
+Disp "COS(U)SIN(V)="
+Disp "  .5[SIN(U+V)-"
+Disp "    SIN(U-V)]"
+Pause
+Goto M
+Lbl 6
+Menu("LAWS","LAW OF SINES",61,"LAW OF COSINES",62)
+End
+Lbl 61
+ClrHome
+Disp "LAW OF SINES"
+Disp "|u/SIN(U)="
+Disp "|v/SIN(V)="
+Disp "|w/SIN(W)"
+Pause
+Goto M
+Lbl 62
+ClrHome
+Disp "LAW OF COSINES"
+Disp "A^^2="
+Disp "B^^2+C^^2-2BCcos(A)"
+Disp "    OR"
+Disp "cos(A)="
+Disp "(B^^2+C^^2-A^^2)/(2BC)"
+Pause
+Goto M

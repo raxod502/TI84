@@ -1,0 +1,43 @@
+"GPQXZ
+0->G
+Menu("SELECT MODE","GRAPHICAL",1,"CONSOLE",2,"SOLVE",5)
+Lbl 1
+1->G
+ClrDraw
+Lbl 2
+0->P
+Menu("PAUSE?","YES",3,"NO",4)
+Lbl 3
+1->P
+Lbl 4
+Input "X=?",Q
+While 1
+	If G
+	Pt-On(Q,{Y1}(Q),2)
+	Q-{Y1}(Q)/nDeriv({Y1},X,Q)->Z
+	If not(G)
+	Disp Q
+	If P
+	Pause
+	If G
+	Then
+		Line(Q,{Y1}(Q),Z,0)
+		Line(Z,0,Z,{Y1}(Z))
+	End
+	If Q=Z
+	Then
+		Q->X
+		Goto 0
+	End
+	Z->Q
+End
+Lbl 5
+Prompt X
+X+1->X
+X-1
+While X!=Ans
+	Ans->X
+	X-{Y1}/nDeriv({Y1},X,X)
+End
+Lbl 0
+Disp X

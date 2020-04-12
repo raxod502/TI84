@@ -1,0 +1,71 @@
+"IXYtheta,Str0,{r6}
+Input "FUNCTION:",Str0
+Str0->{r6}
+Input "INITIAL X: ",X
+Input "INITIAL Y: ",Y
+Menu("ENTRY MODE","TARGET/NUM",1,"TARGET/SIZE",2,"NUM/SIZE",3,"PLOT",4,"SOLVE",5)
+Lbl 1
+Input "FINAL X: ",theta:theta->|LEULER(1)
+Input "NUM STEPS: ",theta:theta->|LEULER(2)
+(|LEULER(1)-X)/|LEULER(2)->|LEULER(3)
+Goto 10
+Lbl 2
+Input "FINAL X: ",theta:theta->|LEULER(1)
+Input "STEP SIZE: ",theta:theta->|LEULER(3)
+(|LEULER(1)-X)/|LEULER(3)->|LEULER(2)
+Goto 10
+Lbl 3
+Input "NUM STEPS: ",theta:theta->|LEULER(2)
+Input "STEP SIZE: ",theta:theta->|LEULER(3)
+X+|LEULER(2)*|LEULER(3)->|LEULER(1)
+Goto 10
+Lbl 4
+Input "FINAL X: ",theta:theta->|LEULER(1)
+Input "NUM STEPS: ",theta:theta->|LEULER(2)
+(|LEULER(1)-X)/|LEULER(2)->|LEULER(3)
+seq(theta,theta,X,|LEULER(1),|LEULER(3))->|LEULRX
+{Y}->|LEULRY
+1->I
+For(X,X,|LEULER(1),|LEULER(3))
+	|LEULRY(I)->Y
+	Y+{r6}|LEULER(3)->|LEULRY(I+1)
+	I+1->I
+End
+dim(|LEULRY)-1->dim(|LEULRY)
+DelVar |LEULER
+SetUpEditor |LEULRX,|LEULRY
+Return
+Lbl 5
+Input "FINAL X: ",theta:theta->|LEULER(1)
+Input "NUM STEPS: ",theta:theta->|LEULER(2)
+(|LEULER(1)-X)/|LEULER(2)->|LEULER(3)
+For(X,X,|LEULER(1),|LEULER(3))
+	Y+{r6}|LEULER(3)->Y
+End
+Y
+Goto 0
+Lbl 10
+0->dim(|LEULRX)
+0->dim(|LEULRY)
+0->dim(|LEULRM)
+0->dim(|LEULDX)
+0->dim(|LEULDY)
+For(I,1,|LEULER(2))
+	X->|LEULRX(I)
+	Y->|LEULRY(I)
+	{r6}->|LEULRM(I)
+	|LEULER(3)->|LEULDX(I)
+	|LEULRM(I)*|LEULDX(I)->|LEULDY(I)
+	|LEULRX(I)+|LEULDX(I)->X
+	|LEULRY(I)+|LEULDY(I)->Y
+End
+X->|LEULRX(I)
+Y->|LEULRY(I)
+DelVar |LEULER
+SetUpEditor |LEULRX,|LEULRY,|LEULRM,|LEULDX,|LEULDY
+Return
+Lbl 0
+DelVar |LEULER
+DelVar |LEULRX
+DelVar |LEULRY
+Ans

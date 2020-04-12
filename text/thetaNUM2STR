@@ -1,0 +1,11 @@
+If 0
+"Str0,{r6}
+{0,Ans->|LthetaY
+{0,1->|LthetaX
+LinReg(ax+b) |LthetaX,|LthetaY,{r6}
+Equ>String({r6},Str0)
+DelVar {r6}
+DelVar |LthetaX
+DelVar |LthetaY
+DelVar |LRESID
+sub(Str0,1,length(Str0)-3

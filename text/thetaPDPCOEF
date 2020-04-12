@@ -1,0 +1,31 @@
+If 0
+"
+If not(length(Ans))
+Then
+	1
+Else
+	If sub(Ans,1,1)="+
+	Then
+		If length(Ans)!=1
+		Then
+			sub(Ans,2,length(Ans)-1
+		Else
+			"
+		End
+		prgmthetaPDPCOEF
+	Else
+		If sub(Ans,1,1)="-
+		Then
+			If length(Ans)!=1
+			Then
+				sub(Ans,2,length(Ans)-1
+			Else
+				"
+			End
+			prgmthetaPDPCOEF
+			~Ans
+		Else
+			expr(Ans
+		End
+	End
+End
